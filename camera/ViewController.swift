@@ -9,7 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-
+    
+    /// ファイルの保存先
+    let directoryPath = NSHomeDirectory().stringByAppendingPathComponent("Documents")
+    
     var imageView : UIImageView? = nil
     
     
@@ -31,7 +34,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         self.navigationItem.rightBarButtonItem = rightButton
         
+        self.view.backgroundColor = UIColor.whiteColor()
+        
     }
+    //ボタンを押した時に呼ばれるメソッド(PhotoLibraryから画像をとってくる)
+    
     func selectPhoto(sender:AnyObject){
         let ipc:UIImagePickerController = UIImagePickerController()
         
@@ -39,10 +46,54 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         ipc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
         self.presentViewController(ipc, animated:true, completion:nil)
-    
         
+    }
+    //画像をNSLogに変換し、アプリ上のデータに保存する。
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        // if info[UIImagePickerControllerOriginalImage] != nil {
+        // imageView!.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            imageView!.image = image
+            
+            // NSDataに変換
+            
+            let fileManager = NSFileManager()
+            
+            let filePath = directoryPath.stringByAppendingPathComponent("image1.png")
+            let imageData = UIImagePNGRepresentation(image)
+            
+            NSLog("image %@", imageData)
+             NSLog("image %@", filePath)
+            
+            
+            
+            if fileManager.createFileAtPath(filePath, contents: imageData, attributes: nil) {
+                //     showAlertMessage("", message: message_succeed)
+                
+                //     initPaths()
+                
+                
+                
             }
+            
+            picker.dismissViewControllerAnimated(true, completion: nil);
+            
 }
-    
+
+
+    }}
+
+
+
+
+
+
+
+
+
+
+
 
 

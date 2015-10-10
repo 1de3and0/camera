@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>6C2D1468-EB72-45C9-B023-02F3C63E6D87</string>
 	<key>IDESourceControlProjectName</key>
-	<string>camera</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>A4CC0CED3B53058895DAC73FA9329BBEC06EAAA4</key>
 		<string>https://github.com/1de3and0/camera.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>camera.xcodeproj</string>
+	<string>camera.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>A4CC0CED3B53058895DAC73FA9329BBEC06EAAA4</key>
